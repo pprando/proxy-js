@@ -1,13 +1,21 @@
 {
   "name": "proxy",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "servidor proxy",
+  "main": "src/main.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./src/main.js",
+    "dev": "cp -n .env.example .env; node --watch --env-file=.env ./src/main.js"
   },
-  "author": "",
+  "author": {
+    "email": "pedro.prando@el.com.br",
+    "name": "Pedro Prando",
+    "url": "https://github.com/pprando"
+  },
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/pprando/proxy-js.git"
+  },
   "license": "ISC"
 }
