@@ -10,7 +10,7 @@ export function obterServidor(sistema) {
   if (!servidorDestino) {
     throw new HttpError(
       404,
-      `Servidor destino do sistema "${sistema}" não configurado`
+      `Servidor de destino do sistema "${sistema}" não foi configurado`
     );
   }
 
