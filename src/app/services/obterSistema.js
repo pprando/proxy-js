@@ -1,4 +1,4 @@
-import { HttpError } from "./index.js";
+import { HttpError } from "../index.js";
 
 export function obterSistema(caminho) {
   if (!caminho) {

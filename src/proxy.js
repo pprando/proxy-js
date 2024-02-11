@@ -1,32 +1,25 @@
-import { createServer } from "http";
-import {
-  HttpError,
-  obterDadosEnviadosNaSolicitacao,
-  obterDestino,
-  responderCom,
-  responderComErro
-} from "./index.js";
+import { createServer } from "node:http";
+import * as app from "./app/index.js";
 
 export const servidorProxy = createServer(async (req, res) => {
   try {
-    const destino = obterDestino(req);
-
+    const parametros = app.obterParametros(req);
+    const destino = app.obterDestino(parametros);
     const resposta = await fetch(destino, {
       method: req.method,
       headers: req.headers,
       body: !["GET", "HEAD"].includes(req.method)
-        ? await obterDadosEnviadosNaSolicitacao(req)
+        ? await app.obterDadosEnviados(req)
         : undefined,
     });
-
-    await responderCom(req, res, resposta);
+    await app.responderCom(req, res, resposta);
   } catch (e) {
     let [status, mensagem] = [500, "Erro interno do servidor"];
-    if (e instanceof HttpError) {
+    if (e instanceof app.HttpError) {
       [status, mensagem] = [e.status, e.message];
     }
-    console.error("#ERRO", status, e.name, mensagem, e);
-    responderComErro(res, status, mensagem);
+    console.error(e);
+    app.responderComErro(res, status, mensagem);
   } finally {
     res.end();
   }

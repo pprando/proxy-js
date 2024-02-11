@@ -1,4 +1,4 @@
-export async function obterDadosEnviadosNaSolicitacao(req) {
+export async function obterDadosEnviados(req) {
   return new Promise((resolve, reject) => {
     let dadosEnviados = [];
     req.on("data", (chunk) => dadosEnviados.push(chunk));

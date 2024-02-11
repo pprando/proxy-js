@@ -1,4 +1,4 @@
-import { registrarInformacoesDaSolicitacao } from "./index.js";
+import { logDaSolicitacao } from "../index.js";
 
 export async function responderCom(req, res, resposta) {
   const { status, statusText, headers } = resposta;
@@ -11,5 +11,5 @@ export async function responderCom(req, res, resposta) {
   const data = await resposta.arrayBuffer();
   res.write(new Uint8Array(data));
 
-  registrarInformacoesDaSolicitacao(req, resposta);
+  logDaSolicitacao(req, resposta);
 }

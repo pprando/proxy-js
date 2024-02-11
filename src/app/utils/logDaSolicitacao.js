@@ -1,6 +1,6 @@
-import { obterSistema } from "./index.js";
+import { obterSistema } from "../index.js";
 
-export function registrarInformacoesDaSolicitacao(
+export function logDaSolicitacao(
   req,
   { url, ok, status, statusText, redirected }
 ) {
@@ -9,7 +9,7 @@ export function registrarInformacoesDaSolicitacao(
       req.url,
       process.env.PROXY_BASE_URL || "http://localhost:1337"
     );
-    console.info({
+    console.info("INFO", {
       sistema: obterSistema(req.url),
       origem: href,
       destino: `${req.method} ${url}`,

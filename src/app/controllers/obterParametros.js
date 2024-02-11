@@ -1,4 +1,4 @@
-import { HttpError } from "./index.js";
+import { HttpError } from "../index.js";
 
 export function obterParametros(req) {
   const { pathname, search, href } = new URL(
