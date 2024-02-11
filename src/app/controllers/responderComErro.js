@@ -1,4 +1,4 @@
-export async function responderComErro(
+export function responderComErro(
   res,
   status = 500,
   mensagem = "Erro interno do servidor"
