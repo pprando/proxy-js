@@ -7,7 +7,7 @@ export function obterParametros(req) {
   );
 
   if (pathname === "/" || req.url.endsWith("/favicon.ico")) {
-    throw new HttpError(404, pathname);
+    throw new HttpError(404, `Nao encontrado ${pathname}`);
   }
 
   return { pathname, search, href };

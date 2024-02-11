@@ -19,8 +19,8 @@ tap.test(
 
     t.equal(
       mensagemErro,
-      "/",
-      "Deve retornar o caminho solicitado '/' que gerou o erro HttpError 404"
+      `Nao encontrado ${req.url}`,
+      "Deve retornar mensagem de erro HttpError 404 corretamente"
     );
 
     const { message: mensagemErroFavicon } = t.throws(
@@ -31,8 +31,8 @@ tap.test(
 
     t.equal(
       mensagemErroFavicon,
-      "/qualquercoisa/favicon.ico",
-      "Deve retornar o caminho solicitado '/qualquercoisa/favicon.ico' que gerou o erro HttpError 404"
+      `Nao encontrado ${reqFavicon.url}`,
+      "Deve retornar mensagem de erro HttpError 404 corretamente"
     );
 
     t.end();
