@@ -17,7 +17,11 @@ tap.test(
       "Deve lançar HttpError 404 para solicitação inválida"
     );
 
-    t.equal(mensagemErro, "/");
+    t.equal(
+      mensagemErro,
+      "/",
+      "Deve retornar o caminho solicitado '/' que gerou o erro HttpError 404"
+    );
 
     const { message: mensagemErroFavicon } = t.throws(
       () => obterParametros(reqFavicon),
@@ -25,7 +29,11 @@ tap.test(
       "Deve lançar HttpError 404 para solicitação inválida"
     );
 
-    t.equal(mensagemErroFavicon, "/qualquercoisa/favicon.ico");
+    t.equal(
+      mensagemErroFavicon,
+      "/qualquercoisa/favicon.ico",
+      "Deve retornar o caminho solicitado '/qualquercoisa/favicon.ico' que gerou o erro HttpError 404"
+    );
 
     t.end();
   }

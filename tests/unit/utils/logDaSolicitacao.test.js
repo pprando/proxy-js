@@ -27,7 +27,7 @@ tap.test("logDaSolicitacao", (t) => {
 
   const consoleInfo = console.info;
   console.info = (tipo, valorRecebido) => {
-    t.match(tipo, /INFO/);
+    t.match(tipo, /INFO/, "tipo deve ser igual a INFO");
     t.same(
       valorRecebido,
       valorEsperado,
