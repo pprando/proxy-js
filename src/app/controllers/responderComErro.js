@@ -6,5 +6,5 @@ export async function responderComErro(
   if (!res.headersSent) {
     res.writeHead(status, { "Content-Type": "text/plain" });
   }
-  res.end(mensagem);
+  res.end(`${status} ${mensagem}`);
 }
