@@ -12,15 +12,17 @@ jobs:
 
     steps:
       - name: baixar os fontes
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: usar node 20
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: "npm"
 
-      - name: configurar npm par usar deduplicacao
+      - name: configurar npm para usar deduplicacao
         run: npm config set prefer-dedupe true
 
       - name: instalar dependencias
