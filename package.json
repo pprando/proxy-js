@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node ./src/main.js",
-    "dev": "clear; cp -n .env.example .env; node --watch --env-file=.env ./src/main.js",
+    "dev": "clear; cp -n .env.example .env; node --no-warnings --watch --env-file=.env ./src/main.js",
     "test": "clear; tap run ./tests --show-full-coverage --node-arg=--no-warnings",
     "unit:test": "clear; tap run ./tests/unit --node-arg=--no-warnings",
     "dev:test": "clear; tap repl --include ./tests --node-arg=--no-warnings"
@@ -25,6 +25,7 @@
     "node": "20.11.0",
     "npm": "10.4.0"
   },
+  "packageManager": "npm@10.4.0",
   "devDependencies": {
     "tap": "^18.7.0"
   },
